@@ -48,13 +48,13 @@ const AddSiteModal = ({ children }) => {
     //   }),
     //   false
     // );
-    mutate(
-      ["/api/sites"],
-      async (data) => ({
-        sites: [{ id, ...newSite }, ...data.sites],
-      }),
-      false
-    );
+    // mutate(
+    //   ["/api/sites"],
+    //   async (data) => ({
+    //     sites: [{ id, ...newSite }, ...data.sites],
+    //   }),
+    //   false
+    // );
     onClose();
   };
   return (
