@@ -45,15 +45,30 @@ const FeedbackPage = ({ initialFeedback }) => {
     setIterator(iterator + 1);
   };
 
-  if (initialFeedback.length) {
+  if (initialFeedback) {
     return (
       <Box as='main' height='100vh' w='full' background='blue.100'>
-        <Flex direction='column' alignItems='center' w={"50%"} maxWidth="700px" minWidth={"500px"} mx='auto'>
+        <Flex
+          direction='column'
+          alignItems='center'
+          w={"50%"}
+          maxWidth='700px'
+          minWidth={"500px"}
+          mx='auto'
+        >
           <Button my={8} w='150px' onClick={handleNewFeedback}>
             Add New Item!
           </Button>
           {initialFeedback.map((item) => (
-            <Box w="full" background="gray.50" rounded="lg" boxShadow="0px 2px 0px 2px #C0C1C2" p={8} key={item.id} mb={8}>
+            <Box
+              w='full'
+              background='gray.50'
+              rounded='lg'
+              boxShadow='0px 2px 0px 2px #C0C1C2'
+              p={8}
+              key={item.id}
+              mb={8}
+            >
               <Heading fontSize='lg'>{item.text}</Heading>
               <Text>{item.author}</Text>
             </Box>
@@ -63,6 +78,13 @@ const FeedbackPage = ({ initialFeedback }) => {
     );
   }
 
-  return <Box>Site ID: ${router.query.siteId}</Box>;
+  return (
+    <Box as='main' height='100vh' w='full' background='blue.100'>
+      <Box mb='8'>No feedback here Site ID: ${router.query.siteId}</Box>
+      <Button my={8} w='150px' onClick={handleNewFeedback}>
+        Add New Item!
+      </Button>
+    </Box>
+  );
 };
 export default FeedbackPage;
