@@ -4,6 +4,7 @@ import EmptyState from "@/components/EmptyState";
 import SiteTableSkeleton from "@/components/SiteTableSkeleton";
 import useSWR from "swr";
 import fetcher from "utils/fetcher";
+import SiteTable from "@/components/SiteTable";
 
 const Dashboard = () => {
   const auth = useAuth();
@@ -28,7 +29,11 @@ const Dashboard = () => {
   //     );
   //   }
 
-  return <DashboardShell>Hello</DashboardShell>;
+  return (
+    <DashboardShell>
+      {data ? <SiteTable sites={data.sites} /> : <SiteTableSkeleton />}
+    </DashboardShell>
+  );
 };
 
 export default Dashboard;

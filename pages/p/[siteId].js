@@ -25,6 +25,14 @@ export async function getStaticPaths() {
 }
 const FeedbackPage = ({ initialFeedback }) => {
   const router = useRouter();
+  console.log(initialFeedback);
+
+  if (initialFeedback.length) {
+    return <Box height="100vh" w="full" background="blue.100">
+      {initialFeedback.map(item => <h3 key={item.id}>{item.text}</h3>)}
+    </Box>;
+  }
+
   return <Box>Site ID: ${router.query.siteId}</Box>;
 };
 export default FeedbackPage;
