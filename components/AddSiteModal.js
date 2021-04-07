@@ -40,9 +40,16 @@ const AddSiteModal = ({ children }) => {
       duration: 5000,
       isClosable: true,
     });
-    Update the SWR cache to add the new site
+    // Update the SWR cache to add the new site
+    // mutate(
+    //   ["/api/sites", auth.user.token],
+    //   async (data) => ({
+    //     sites: [{ id, ...newSite }, ...data.sites],
+    //   }),
+    //   false
+    // );
     mutate(
-      ["/api/sites", auth.user.token],
+      ["/api/sites"],
       async (data) => ({
         sites: [{ id, ...newSite }, ...data.sites],
       }),
