@@ -80,6 +80,7 @@ const FeedbackPage = ({ initialFeedback }) => {
 
   return (
     <Box as='main' height='100vh' w='full' background='blue.100'>
+      {/* TODO: Add login option to add feedback... */}
       <Box mb='8'>No feedback here Site ID: ${router.query.siteId}</Box>
       <Button my={8} w='150px' onClick={handleNewFeedback}>
         Add New Item!

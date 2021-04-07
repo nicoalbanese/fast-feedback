@@ -2,9 +2,11 @@ import { Button, Heading, Text, Code, Flex } from "@chakra-ui/react";
 import { SunIcon } from "@chakra-ui/icons";
 import Head from "next/head";
 import { useAuth } from "@/lib/auth";
+import { useRouter } from "next/router";
 
 export default function Home() {
   const auth = useAuth();
+  const router = useRouter();
 
   return (
     <Flex
@@ -29,7 +31,7 @@ export default function Home() {
         <Button
           mt={4}
           size="sm"
-          onClick={(e) => auth.signinWithGithub()}
+          onClick={(e) => auth.signinWithGithub().then(i => router.push("/dashboard"))}
         >
           Sign In
         </Button>
